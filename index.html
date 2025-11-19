@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nativos Consultora Digital | Transformamos ideas en resultados digitales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nativos Consultora Digital: desarrollo de software, apps, sitios web y marketing digital estratégico para que tu negocio crezca en internet." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; /* fondo principal */
+      --surface: #fff7f0; /* superficies con tinte naranja muy suave */
+      --text-dark: #1f2937; /* texto principal (oscuro sobre blanco) */
+      --muted: #6b7280; /* texto secundario */
+      --accent: #ff7a18; /* naranja principal */
+      --accent-2: #ffb76a; /* naranja secundario para degradados */
+      --white: #ffffff;
+      --radius-lg: 1.25rem;
+      --radius-xl: 1.75rem;
+      --shadow-soft: 0 18px 40px rgba(31, 41, 55, 0.06);
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fffdf9, #fff7f0 55%, #ffffff 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.98), rgba(255,255,255,0.92), transparent);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo-text span:first-child {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo-text span:last-child {
+      font-size: 0.75rem;
+      color: var(--gris-texto);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      margin-left: 2.2rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--text-dark);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.22rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.88rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #ffffff;
+      box-shadow: 0 14px 40px rgba(255, 122, 24, 0.12);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 20px 55px rgba(251, 191, 36, 0.6);
+    }
+
+    .btn-outline {
+      border-color: var(--accent);
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(255,122,24,0.06);
+      color: #fff;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: #f1f5f9;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 3.2rem 0 2.6rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem 0.25rem 0.28rem;
+      border-radius: 999px;
+      border: 1px solid rgba(31,41,55,0.06);
+      background: var(--surface);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent-2), var(--accent));
+      box-shadow: 0 0 10px rgba(255,122,24,0.18);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 3.5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, var(--accent-2), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-footnote {
+      font-size: 0.8rem;
+      color: var(--gris-texto);
+    }
+
+    .hero-footnote strong {
+      color: #e5e7eb;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.3rem;
+      background: radial-gradient(circle at top left, rgba(255,186,120,0.15), rgba(255,255,255,0.96));
+      border: 1px solid rgba(31,41,55,0.04);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .hero-card-sub {
+      font-size: 0.75rem;
+      color: var(--gris-texto);
+    }
+
+    .hero-card-pill {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,122,24,0.14);
+      background: rgba(255,122,24,0.06);
+      color: var(--accent);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .metric {
+      border-radius: 1rem;
+      padding: 0.7rem 0.8rem;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(31,41,55,0.04);
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-value {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .metric-extra {
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+
+    .metric-extra.down {
+      color: #ef4444; /* rojo suave para negativos */
+    }
+
+    .hero-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--gris-texto);
+    }
+
+    .stack-pill {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(31,41,55,0.04);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .hero-float {
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.3rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px 0 0 999px;
+      border: 1px solid rgba(31,41,55,0.04);
+      background: rgba(255,255,255,0.96);
+      font-size: 0.7rem;
+      color: var(--text-dark);
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 2.7rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gris-texto);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: var(--gris-texto);
+      max-width: 26rem;
+    }
+
+    /* SERVICIOS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.1rem;
+      background: radial-gradient(circle at top, rgba(255,186,120,0.08), rgba(255,255,255,0.96));
+      border: 1px solid rgba(31,41,55,0.04);
+      box-shadow: 0 10px 25px rgba(31,41,55,0.06);
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(31,41,55,0.08);
+      border-color: rgba(255,122,24,0.12);
+      background: radial-gradient(circle at top, rgba(255,122,24,0.06), rgba(255,255,255,0.98));
+    }
+
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 0.9rem;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(31,41,55,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-text {
+      font-size: 0.84rem;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .card-tags {
+    display: flex
+;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    color: var(--gris-texto);
+    margin-bottom: 0.7rem;
+    color: #fff;
+}
+
+    .card-tag {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .card-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--gris-texto);
+    }
+
+    .card-link {
+      color: #fbbf24;
+      cursor: pointer;
+    }
+
+    /* POR QUÉ NATIVOS */
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.1rem;
+      background: rgba(255,255,255,0.98);
+      border: 1px solid rgba(31,41,55,0.04);
+      font-size: 0.85rem;
+      color: var(--text-dark);
+    }
+
+    .panel h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .panel ul {
+      margin-left: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .panel li {
+      margin-bottom: 0.3rem;
+      color: var(--gris-texto);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .chip {
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(31,41,55,0.04);
+      background: rgba(255,255,255,0.96);
+      color: var(--text-dark);
+    }
+
+    /* INDUSTRIAS */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      margin-top: 0.7rem;
+    }
+
+    .pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(31,41,55,0.04);
+      background: rgba(255,255,255,0.98);
+      color: var(--text-dark);
+    }
+
+    .panel-accent {
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.1rem;
+      background: radial-gradient(circle at top right, rgba(255,186,120,0.08), rgba(255,255,255,0.98));
+      border: 1px solid rgba(31,41,55,0.04);
+      font-size: 0.85rem;
+      color: var(--text-dark);
+    }
+
+    .panel-accent h3 {
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .panel-accent ul {
+      margin-left: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .panel-accent li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* CONTACTO */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.1rem;
+      background: radial-gradient(circle at top left, rgba(255,122,24,0.07), rgba(255,255,255,0.98));
+      border: 1px solid rgba(31,41,55,0.04);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .contact-card p {
+      font-size: 0.86rem;
+      color: var(--text-dark);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-details {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .contact-details div {
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-form {
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.1rem;
+      background: rgba(255,255,255,0.98);
+      border: 1px solid rgba(31,41,55,0.04);
+      font-size: 0.88rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.7rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(31,41,55,0.06);
+      padding: 0.5rem 0.7rem;
+      background: rgba(255,255,255,0.98);
+      color: var(--text-dark);
+      font-size: 0.84rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(255,122,24,0.9);
+      box-shadow: 0 0 0 3px rgba(255,122,24,0.06);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-helper {
+      font-size: 0.75rem;
+      color: var(--gris-texto);
+      margin-bottom: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(31,41,55,0.04);
+      padding: 1.1rem 0 1.4rem;
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: #fbbf24;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .why-grid,
+      .industries-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .nav.open {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav.open .nav-links,
+      .nav.open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 0.6rem;
+        border-top: 1px solid rgba(55, 65, 81, 0.9);
+      }
+      .hero {
+        padding-top: 2.3rem;
+      }
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .section-header {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="nav" id="mainNav">
+          <div class="nav-left">
+            <div class="nav-logo">
+              <!-- Cambiá la ruta del logo -->
+              <img src="img/logo-nativos.png" alt="Nativos Consultora Digital">
+              <div class="nav-logo-text">
+                <span>NATIVOS</span>
+                <span>Consultora Digital</span>
+              </div>
+            </div>
+            <div class="nav-links">
+              <a href="#inicio">Inicio</a>
+              <a href="#servicios">Servicios</a>
+              <a href="#por-que">Por qué Nativos</a>
+              <a href="#industrias">Industrias</a>
+              <a href="#contacto">Contacto</a>
+            </div>
+          </div>
+          <div class="nav-cta">
+            <a href="#contacto" class="btn btn-outline">Solicitar llamada</a>
+            <a href="https://wa.me/TU_NUMERO_WHATSAPP" target="_blank" class="btn btn-primary">Hablar por WhatsApp</a>
+          </div>
+          <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="inicio">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span>Transformamos ideas en resultados digitales</span>
+              </div>
+              <h1 class="hero-title">
+                Tu <span class="highlight">equipo digital</span> para hacer crecer tu negocio.
+              </h1>
+              <p class="hero-subtitle">
+                En <strong>Nativos Consultora Digital</strong> hablamos el idioma de tu empresa. Desarrollamos software, sitios web y estrategias de marketing digital para que consigas más clientes, más ventas y más control sobre tu operación.
+              </p>
+              <div class="hero-tags">
+                <span class="hero-tag">Desarrollo de software y apps</span>
+                <span class="hero-tag">Diseño y desarrollo web</span>
+                <span class="hero-tag">Meta Ads &amp; Google Ads</span>
+                <span class="hero-tag">Automatizaciones y embudos</span>
+              </div>
+              <div class="hero-actions">
+                <a href="#contacto" class="btn btn-primary">Agendar una consulta</a>
+                <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+              </div>
+              <p class="hero-footnote">
+                <strong>Ideal para:</strong> pymes, profesionales, consultoras, sector minero y sector público que necesitan llevar su presencia digital al siguiente nivel.
+              </p>
+            </div>
+
+            <div class="hero-visual">
+              <div class="hero-card">
+                <div class="hero-card-header">
+                  <div>
+                    <div class="hero-card-title">Panel Nativos Digital</div>
+                    <div class="hero-card-sub">Resumen de tu ecosistema online</div>
+                  </div>
+                  <span class="hero-card-pill">Marketing + Tecnología</span>
+                </div>
+
+                <div class="hero-metrics">
+                  <div class="metric">
+                    <div class="metric-label">Leads calificados</div>
+                    <div class="metric-value">+132%</div>
+                    <div class="metric-extra">vs. últimos 30 días</div>
+                  </div>
+                  <div class="metric">
+                    <div class="metric-label">Costo por lead</div>
+                    <div class="metric-value">$ 420</div>
+                    <div class="metric-extra down">-37% optimizado</div>
+                  </div>
+                  <div class="metric">
+                    <div class="metric-label">Tasa de conversión web</div>
+                    <div class="metric-value">4,8%</div>
+                    <div class="metric-extra">Diseño + anuncios</div>
+                  </div>
+                  <div class="metric">
+                    <div class="metric-label">Automatizaciones activas</div>
+                    <div class="metric-value">18</div>
+                    <div class="metric-extra">WhatsApp + email</div>
+                  </div>
+                </div>
+
+                <div class="hero-stack">
+                  <span class="stack-pill">Apps a medida</span>
+                  <span class="stack-pill">CRM &amp; gestión interna</span>
+                  <span class="stack-pill">Landing pages</span>
+                  <span class="stack-pill">Meta Ads</span>
+                  <span class="stack-pill">Google Ads</span>
+                  <span class="stack-pill">Embudos automatizados</span>
+                </div>
+
+                <div class="hero-float">
+                  Nativos gestionando tu ecosistema digital mientras vos te enfocás en el negocio.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICIOS -->
+      <section id="servicios">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Servicios</div>
+              <h2 class="section-title">Lo que hacemos por tu empresa</h2>
+            </div>
+            <p class="section-subtitle">
+              Unimos desarrollo, diseño y marketing en una sola consultora, para que no tengas que coordinar diez proveedores distintos.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <!-- Servicio 1 -->
+            <article class="card">
+              <div class="card-icon">💻</div>
+              <h3 class="card-title">Desarrollo de software &amp; aplicaciones</h3>
+              <p class="card-text">
+                Creamos soluciones tecnológicas a medida: sistemas de gestión, apps internas, plataformas SaaS y automatizaciones que ordenan tu operación.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Apps móviles</span>
+                <span class="card-tag">Sistemas internos</span>
+                <span class="card-tag">Integraciones API</span>
+              </div>
+              <div class="card-foot">
+                <span>Procesos más claros y medibles</span>
+                <span class="card-link">Consultar &raquo;</span>
+              </div>
+            </article>
+
+            <!-- Servicio 2 -->
+            <article class="card">
+              <div class="card-icon">🌐</div>
+              <h3 class="card-title">Diseño &amp; desarrollo web</h3>
+              <p class="card-text">
+                Sitios web y landings modernas, rápidas y pensadas para convertir visitas en contactos reales. Tu marca se ve profesional y confiable.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Sitios corporativos</span>
+                <span class="card-tag">Landing pages</span>
+                <span class="card-tag">e-commerce</span>
+              </div>
+              <div class="card-foot">
+                <span>UX/UI &amp; enfoque en conversión</span>
+                <span class="card-link">Quiero mi web &raquo;</span>
+              </div>
+            </article>
+
+            <!-- Servicio 3 -->
+            <article class="card">
+              <div class="card-icon">📈</div>
+              <h3 class="card-title">Marketing digital estratégico</h3>
+              <p class="card-text">
+                Campañas en Meta Ads y Google Ads, contenido y embudos automatizados con foco en resultados medibles: leads, ventas y retorno.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Meta Ads</span>
+                <span class="card-tag">Google Ads</span>
+                <span class="card-tag">Embudos y automatización</span>
+              </div>
+              <div class="card-foot">
+                <span>Métricas claras, decisiones inteligentes</span>
+                <span class="card-link">Ver estrategia &raquo;</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- POR QUÉ NATIVOS -->
+      <section id="por-que">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Por qué Nativos</div>
+              <h2 class="section-title">No somos solo otra agencia</h2>
+            </div>
+            <p class="section-subtitle">
+              Nos integramos como tu área digital externa: técnica, estratégica y enfocada en negocio, no solo en “lindos diseños”.
+            </p>
+          </div>
+
+          <div class="why-grid">
+            <div class="panel">
+              <h3>Hablamos el idioma de tu negocio</h3>
+              <p>
+                Entendemos objetivos, restricciones y contexto. No proponemos cosas imposibles, sino caminos reales para crecer paso a paso.
+              </p>
+              <ul>
+                <li>Definimos con vos prioridades: qué hacer primero y qué después.</li>
+                <li>Traducimos lo técnico en decisiones simples de negocio.</li>
+                <li>Te mostramos números, no solo tareas.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Visión integral</span>
+                <span class="chip">Enfoque en resultados</span>
+                <span class="chip">Acompañamiento continuo</span>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Un solo equipo para todo lo digital</h3>
+              <p>
+                Desarrollo, diseño, anuncios, automatizaciones, todo coordinado. Menos fricción, más claridad en lo que está pasando.
+              </p>
+              <ul>
+                <li>Un solo responsable por todo tu ecosistema digital.</li>
+                <li>Seguimiento con indicadores periódicos.</li>
+                <li>Capacidad de escalar soluciones a medida que creces.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Menos proveedores</span>
+                <span class="chip">Más control</span>
+                <span class="chip">Crecimiento ordenado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INDUSTRIAS -->
+      <section id="industrias">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Industrias</div>
+              <h2 class="section-title">Soluciones adaptadas a tu realidad</h2>
+            </div>
+            <p class="section-subtitle">
+              No es lo mismo vender servicios profesionales que gestionar una operación minera. Ajustamos la tecnología a tu mundo.
+            </p>
+          </div>
+
+          <div class="industries-grid">
+            <div>
+              <p style="font-size:0.88rem;color:var(--text-dark);">
+                Trabajamos con empresas y organizaciones que quieren profesionalizar su presencia digital:
+              </p>
+              <div class="pill-list">
+                <span class="pill">Pymes de servicios</span>
+                <span class="pill">Estudios contables &amp; legales</span>
+                <span class="pill">Consultoras y agencias</span>
+                <span class="pill">Comercios y e-commerce</span>
+                <span class="pill">Sector minero e industrial</span>
+                <span class="pill">Sector público y municipios</span>
+              </div>
+              <p style="font-size:0.86rem;color:var(--muted);margin-top:0.8rem;">
+                Estés en la etapa que estés, podemos ordenar lo que ya tenés y construir lo que falta para crecer con datos, no con intuición.
+              </p>
+            </div>
+
+            <div class="panel-accent">
+              <h3>Ejemplos para minería, industria y sector público</h3>
+              <p>Desde Nativos podemos desarrollar:</p>
+              <ul>
+                <li>Apps internas para inspecciones, reportes y mantenimiento.</li>
+                <li>Portales de proveedores y gestión de contratistas.</li>
+                <li>Paneles de indicadores (KPIs) para dirección y operaciones.</li>
+                <li>Plataformas de capacitación online para equipos.</li>
+                <li>Sitios y campañas de comunicación y reputación pública.</li>
+              </ul>
+              <p style="margin-top:0.4rem;">
+                Si tu organización trabaja con alta demanda operativa, hacemos que la tecnología y el marketing sean aliados de tu gestión diaria.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Contacto</div>
+              <h2 class="section-title">Hablemos de tu proyecto</h2>
+            </div>
+            <p class="section-subtitle">
+              Contanos en qué punto estás y qué querés lograr. Te respondemos con una propuesta clara, sin tecnicismos innecesarios.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>Coordinemos una reunión</h3>
+              <p>
+                Podemos empezar con una videollamada breve donde revisamos tu situación actual, detectamos oportunidades y trazamos un plan inicial.
+              </p>
+              <div class="contact-details">
+                <div>📧 <strong>Correo:</strong> contacto@nativosdigital.com (ejemplo)</div>
+                <div>📞 <strong>WhatsApp:</strong> +54 9 XX XXXX-XXXX</div>
+                <div>📍 <strong>Ubicación:</strong> Argentina (trabajamos de forma remota)</div>
+              </div>
+              <a href="https://wa.me/TU_NUMERO_WHATSAPP" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:0.5rem;">
+                Enviar mensaje por WhatsApp
+              </a>
+              <div style="font-size:0.78rem;color:#000000;">
+                Si preferís, completá el formulario y te respondemos por correo.
+              </div>
+            </div>
+
+            <!-- FORMULARIO (frontend, lista para conectar a Formspree u otro) -->
+            <form class="contact-form">
+              <div class="form-group">
+                <label class="form-label" for="nombre">Nombre y empresa</label>
+                <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Ej: Ana Gómez - Estudio Contable Norte">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Correo electrónico</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="tuemail@empresa.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="servicio">¿Qué te interesa?</label>
+                <input class="form-input" type="text" id="servicio" name="servicio" placeholder="Ej: nueva web + anuncios en Meta Ads">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="mensaje">Contanos un poco más</label>
+                <textarea class="form-textarea" id="mensaje" name="mensaje" placeholder="Ej: ya tengo una web pero no convierte, necesito ordenar mi presencia digital y empezar a invertir en campañas de forma profesional."></textarea>
+              </div>
+              <div class="form-helper">
+                Cuanto más contexto nos des, mejor podremos orientarte desde el primer contacto.
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                Enviar mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-row">
+          <div>&copy; <span id="year"></span> Nativos Consultora Digital. Todos los derechos reservados.</div>
+          <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Año dinámico
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const nav = document.getElementById("mainNav");
+    const navToggle = document.getElementById("navToggle");
+
+    navToggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
