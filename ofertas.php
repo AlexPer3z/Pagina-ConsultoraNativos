@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas de Trabajo - Toori ServiciosYa</title>
+    <meta name="description"
+        content="Explorá las ofertas de trabajo disponibles en Toori. Oportunidades para profesionales verificados.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script type="module" crossorigin src="./assets/ofertas-BC4XP6Z4.js"></script>
+
+
+  <link rel="stylesheet" crossorigin href="./assets/main-D3W1u2cc.css">
+</head>
+
+<body style="background-color: var(--bg-soft); min-height: 100vh;">
+<?php include 'header.php'; ?>
+    
+
+    <main class="container" style="padding: 60px 0 100px;">
+        <div class="mb-4">
+            <h1>Ofertas Disponibles</h1>
+            <p class="text-muted">Encontrá oportunidades y enviá tu presupuesto hoy mismo.</p>
+        </div>
+
+        <div id="loading-ofertas" class="text-center py-5">
+            <div style="font-size: 2rem; color: var(--toori-blue);"><i class="bi bi-arrow-repeat spin"></i></div>
+            <p class="mt-2 text-muted">Buscando las mejores ofertas para vos...</p>
+        </div>
+
+        <div id="ofertas-container" class="grid"
+            style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px;">
+            <!-- Rendered by src/ofertas.ts -->
+        </div>
+    </main>
+
+    <!-- Footer (Toori Design) -->
+   <?php include 'footer.php'; ?>
+
+    <style>
+        .justify-center {
+            justify-content: center;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin {
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+    </style>
+
+
+
+</body>
+
+</html>
