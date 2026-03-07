@@ -108,9 +108,15 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label>Matrícula / Habilitación</label>
-                <input type="checkbox" id="reg-matricula" style="width:20px;height:20px;">
+            <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                <div class="form-group">
+                    <label>Matrícula <span style="color:#888;font-size:0.85em;">(opcional)</span></label>
+                    <input type="file" id="reg-matricula-pdf" accept="application/pdf" class="form-control" style="padding:8px;">
+                </div>
+                <div class="form-group">
+                    <label>Antecedentes <span style="color:#888;font-size:0.85em;">(opcional)</span></label>
+                    <input type="file" id="reg-antecedentes-pdf" accept="application/pdf" class="form-control" style="padding:8px;">
+                </div>
             </div>
 
             <div class="form-group">
@@ -126,6 +132,13 @@
             <div class="form-group">
                 <input type="checkbox" id="reg-terminos" required>
                 <label>Acepto los <a href="/Terminos-y-condiciones.php">Términos y Condiciones</a></label>
+            </div>
+
+            <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;background:#eaf7f0;border:1px solid #b2dfce;border-radius:12px;padding:14px 16px;">
+                <span style="font-size:22px;color:#27ae60;flex-shrink:0;">&#10003;</span>
+                <p style="margin:0;color:#1a7a4a;font-size:0.92em;line-height:1.5;">
+                    <strong>Subir tu matrícula y antecedentes te convertirá en un prestador verificado</strong>, dándote mayor visibilidad y confianza ante los clientes.
+                </p>
             </div>
 
             <button type="submit" class="btn btn-primary w-100 mt-3">Enviar</button>
@@ -203,6 +216,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const user_id = authData.user.id; // ID único del usuario
         let fotoUrl = null;
+        let matriculaUrl = null;
+        let antecedentesUrl = null;
 
         // 2️⃣ Subir foto si hay archivo
         if (fileInput.files.length > 0) {
@@ -224,6 +239,36 @@ document.addEventListener('DOMContentLoaded', async () => {
             fotoUrl = `${supabaseUrl}/storage/v1/object/public/imagenes/${fileName}`;
         }
 
+        // 2b️⃣ Subir PDF de matrícula (opcional)
+        const matriculaInput = document.getElementById('reg-matricula-pdf');
+        if (matriculaInput.files.length > 0) {
+            const file = matriculaInput.files[0];
+            const fileName = `${user_id}-matricula-${Date.now()}.pdf`;
+            const { error: storageError } = await window.supabaseClient
+                .storage
+                .from('imagenes')
+                .upload(fileName, file);
+            if (!storageError) {
+                matriculaUrl = `${supabaseUrl}/storage/v1/object/public/imagenes/${fileName}`;
+            }
+        }
+
+        // 2c️⃣ Subir PDF de antecedentes (opcional)
+        const antecedentesInput = document.getElementById('reg-antecedentes-pdf');
+        if (antecedentesInput.files.length > 0) {
+            const file = antecedentesInput.files[0];
+            const fileName = `${user_id}-antecedentes-${Date.now()}.pdf`;
+            const { error: storageError } = await window.supabaseClient
+                .storage
+                .from('imagenes')
+                .upload(fileName, file);
+            if (!storageError) {
+                antecedentesUrl = `${supabaseUrl}/storage/v1/object/public/imagenes/${fileName}`;
+            }
+        }
+
+        const verificado = !!(matriculaUrl && antecedentesUrl);
+
         // 3️⃣ Guardar perfil en tabla "usuarios"
         const data = {
             id: user_id,
@@ -233,7 +278,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             edad: parseInt(document.getElementById('reg-edad').value) || null,
             celular: document.getElementById('reg-celular').value || null,
             categoria: document.getElementById('reg-profesion').value,
-            matricula: document.getElementById('reg-matricula').checked,
+            matricula_url: matriculaUrl,
+            antecedentes_url: antecedentesUrl,
+            verificado: verificado,
             antiguedad: parseInt(document.getElementById('reg-antiguedad').value) || 0,
             antecedentes: document.getElementById('reg-antecedentes').value || null,
             rol: 'worker',

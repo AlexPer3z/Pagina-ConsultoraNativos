@@ -62,6 +62,113 @@
         </div>
     </section>
 
+    <!-- Sponsors Carousel -->
+    <section style="background-color: var(--bg-soft); padding: 40px 0;">
+        <div class="container" style="max-width: 900px;">
+
+            <div id="sponsors-carousel" style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); height:260px; cursor:pointer;">
+
+                <!-- Badge -->
+                <span style="position:absolute;top:12px;right:12px;z-index:10;background:rgba(0,0,0,0.35);color:#fff;font-size:0.7rem;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.05em;text-transform:uppercase;">Publicidad</span>
+
+                <!-- Slides -->
+                <div class="sponsor-slide" data-index="0" style="position:absolute;inset:0;display:flex;align-items:center;padding:30px 40px;opacity:1;transition:opacity 0.5s ease;background:#FF6B35;">
+                    <div style="flex:1;">
+                        <div style="display:inline-block;background:rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;margin-bottom:12px;">
+                            <span style="color:#fff;font-weight:700;font-size:0.85rem;">🔧 Ferretería El Tornillo</span>
+                        </div>
+                        <h3 style="color:#fff;font-size:1.5rem;font-weight:800;margin:0 0 6px;">Todo para tu hogar</h3>
+                        <p style="color:rgba(255,255,255,0.85);margin:0;font-size:0.95rem;">Materiales y herramientas de calidad al mejor precio</p>
+                    </div>
+                    <div style="flex-shrink:0;margin-left:20px;font-size:5rem;opacity:0.3;">🔩</div>
+                </div>
+
+                <div class="sponsor-slide" data-index="1" style="position:absolute;inset:0;display:flex;align-items:center;padding:30px 40px;opacity:0;transition:opacity 0.5s ease;background:#2C3E50;">
+                    <div style="flex:1;">
+                        <div style="display:inline-block;background:rgba(255,255,255,0.15);border-radius:8px;padding:6px 12px;margin-bottom:12px;">
+                            <span style="color:#fff;font-weight:700;font-size:0.85rem;">🚗 Automotores Catamarca</span>
+                        </div>
+                        <h3 style="color:#fff;font-size:1.5rem;font-weight:800;margin:0 0 6px;">Tu próximo auto te espera</h3>
+                        <p style="color:rgba(255,255,255,0.75);margin:0;font-size:0.95rem;">Financiación inmediata, sin trámites complicados</p>
+                    </div>
+                    <div style="flex-shrink:0;margin-left:20px;font-size:5rem;opacity:0.3;">🚙</div>
+                </div>
+
+                <div class="sponsor-slide" data-index="2" style="position:absolute;inset:0;display:flex;align-items:center;padding:30px 40px;opacity:0;transition:opacity 0.5s ease;background:#27AE60;">
+                    <div style="flex:1;">
+                        <div style="display:inline-block;background:rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;margin-bottom:12px;">
+                            <span style="color:#fff;font-weight:700;font-size:0.85rem;">💊 Farmacia Central</span>
+                        </div>
+                        <h3 style="color:#fff;font-size:1.5rem;font-weight:800;margin:0 0 6px;">Tu salud, nuestra prioridad</h3>
+                        <p style="color:rgba(255,255,255,0.85);margin:0;font-size:0.95rem;">Medicamentos, cosméticos y atención personalizada</p>
+                    </div>
+                    <div style="flex-shrink:0;margin-left:20px;font-size:5rem;opacity:0.3;">💊</div>
+                </div>
+
+                <!-- Flechas -->
+                <button id="sponsor-prev" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.25);border:none;border-radius:50%;width:36px;height:36px;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);">&#8249;</button>
+                <button id="sponsor-next" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,0.25);border:none;border-radius:50%;width:36px;height:36px;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);">&#8250;</button>
+            </div>
+
+            <!-- Indicadores -->
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:14px;">
+                <button class="sponsor-dot active" data-dot="0" style="width:24px;height:6px;border-radius:3px;border:none;background:#4b4e6d;cursor:pointer;transition:all 0.3s;"></button>
+                <button class="sponsor-dot" data-dot="1" style="width:8px;height:6px;border-radius:3px;border:none;background:#ccc;cursor:pointer;transition:all 0.3s;"></button>
+                <button class="sponsor-dot" data-dot="2" style="width:8px;height:6px;border-radius:3px;border:none;background:#ccc;cursor:pointer;transition:all 0.3s;"></button>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @media (max-width: 768px) {
+            #sponsors-carousel { height: 190px !important; }
+            #sponsors-carousel .sponsor-slide { padding: 20px !important; }
+            #sponsors-carousel .sponsor-slide h3 { font-size: 1.1rem !important; }
+            #sponsors-carousel .sponsor-slide p { font-size: 0.8rem !important; }
+            #sponsors-carousel .sponsor-slide > div:last-child { display: none; }
+        }
+    </style>
+
+    <script>
+    (function() {
+        const sponsors = [
+            { id: 1, nombre: "Ferretería El Tornillo", link: "#", color: "#FF6B35", titulo: "Todo para tu hogar", descripcion: "Materiales y herramientas de calidad al mejor precio" },
+            { id: 2, nombre: "Automotores Catamarca", link: "#", color: "#2C3E50", titulo: "Tu próximo auto te espera", descripcion: "Financiación inmediata, sin trámites complicados" },
+            { id: 3, nombre: "Farmacia Central", link: "#", color: "#27AE60", titulo: "Tu salud, nuestra prioridad", descripcion: "Medicamentos, cosméticos y atención personalizada" }
+        ];
+
+        let current = 0;
+        const slides = document.querySelectorAll('.sponsor-slide');
+        const dots = document.querySelectorAll('.sponsor-dot');
+        let timer;
+
+        function goTo(index) {
+            slides[current].style.opacity = '0';
+            dots[current].style.width = '8px';
+            dots[current].style.background = '#ccc';
+            current = (index + slides.length) % slides.length;
+            slides[current].style.opacity = '1';
+            dots[current].style.width = '24px';
+            dots[current].style.background = '#4b4e6d';
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(() => goTo(current + 1), 5000);
+        }
+
+        document.getElementById('sponsor-prev').addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); startTimer(); });
+        document.getElementById('sponsor-next').addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); startTimer(); });
+        dots.forEach(dot => dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.dot)); startTimer(); }));
+
+        document.getElementById('sponsors-carousel').addEventListener('click', () => {
+            window.open(sponsors[current].link, '_blank', 'noopener');
+        });
+
+        startTimer();
+    })();
+    </script>
+
     <!-- How it Works (Toori Original Look) -->
     <section class="section" id="como-funciona" style="background-color: var(--bg-white);">
         <div class="container text-center">
